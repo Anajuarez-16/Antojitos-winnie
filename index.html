@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú de Antojitos la Winnie</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fff8dc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #a6e2f1;
+      text-align: center;
+      padding: 20px;
+      border-bottom: 4px solid #d18b00;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #663300;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h2 {
+      margin: 10px 0;
+      color: #cc6600;
+    }
+
+    .card p {
+      padding: 0 10px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #ffcc00;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      border-top: 4px solid #d18b00;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-weight: bold;
+      color: #663300;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .whatsapp img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .whatsapp img:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1> Menú de Antojitos la Winnie </h1>
+  </header>
+
+  <section class="menu">
+    <div class="card" onclick="ordenar('Manzana loca', 60)">
+      <img src="Manzana loca.webp" alt="Manzana loca">
+      <h2>Manzana loca</h2>
+      <p>Manzana en rebanadas cubierta con pulpa de tamarindo acompañada con gomitas bañadas en chamoy 💛</p>
+      <p><strong>$60 MXN</strong></p>
+    </div>
+
+    <div class="card" onclick="ordenar('Uvas locas', 40)">
+      <img src="Uvas locas.jpg" alt="Uvas locas">
+      <h2>Uvas locas</h2>
+      <p>Uvas frescas con chilito, chamoy y gomitas. Perfectas para compartir.</p>
+      <p><strong>$40 MXN</strong></p>
+    </div>
+
+    <div class="card" onclick="ordenar('Pepino loco', 35)">
+      <img src="Pepino loco.webp" alt="Pepino loco">
+      <h2>Pepino loco</h2>
+      <p>Pepino fresco con chamoy, cacahuates, salsas y gomitas.</p>
+      <p><strong>$35 MXN</strong></p>
+    </div>
+
+    <div class="card" onclick="ordenar('Tacos de fruta', 50)">
+      <img src="Tacos de fruta.jpg" alt="Tacos de fruta">
+      <h2>Tacos de fruta</h2>
+      <p>Tortillitas rellenas de frutas frescas con chamoy y salsita dulce.</p>
+      <p><strong>$50 MXN</strong></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>📍 San Luis Potosí | 📞 444-578-6318</p>
+    <div class="whatsapp">
+      <a href="https://wa.me/5214445786318" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function ordenar(producto, precio) {
+      let cantidad = prompt(`¿Cuántos ${producto} deseas ordenar?`);
+      if (cantidad && !isNaN(cantidad) && cantidad > 0) {
+        let total = precio * cantidad;
+        let mensaje = `Hola, quiero ordenar ${cantidad} ${producto}(s). Total: $${total} MXN.`;
+        let telefono = "5214445786318"; // tu número de WhatsApp con LADA
+        let url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+        window.open(url, "_blank");
+      } else {
+        alert("Por favor ingresa una cantidad válida.");
+      }
+    }
+  </script>
+
+</body>
+</html>
